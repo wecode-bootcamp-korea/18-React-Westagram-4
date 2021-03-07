@@ -1,1 +1,143 @@
-// zx
+.main-page {
+  height: 200vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+  height: 100vh;
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .loginImage {
+      img {
+        width: 380px;
+        height: 560px;
+      }
+    }
+  }
+
+  .loginBox {
+    width: 330px;
+    height: 560px;
+
+    .loginMain {
+      .loginTitle {
+        height: 80px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Lobster", cursive;
+        font-size: 42px;
+      }
+    }
+
+    .loginInput {
+      background-color: white;
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 0px 20px;
+
+      input {
+        margin: 3px 25px;
+        padding: 8px;
+        border-radius: 5px;
+      }
+      button {
+        color: white;
+        font-weight: 600;
+        margin: 7px 25px;
+        padding: 4px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  /* instagram 글자*/
+
+  .loginMain {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  /*로그인버튼 아래 구분 선*/
+  .divider {
+    height: 0.5px;
+    width: 72%;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .facebook {
+    color: #00376b;
+    padding-top: 20px;
+    margin: auto;
+    font-size: 13px;
+    font-weight: 600;
+
+    i {
+      color: #00376b;
+    }
+  }
+  /*비밀번호를 잊으셨나요? */
+  .forgetPassword {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+
+  .loginSignup {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    padding: 20px 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .signUp {
+    color: #0095f7;
+    font-weight: 580;
+  }
+
+  input::placeholder {
+    font-size: 80%;
+  }
+
+  @media screen and (max-width: 800px) {
+    .loginImage {
+      display: none;
+    }
+  }
+  .activebtn {
+    background-color: #0095f6;
+  }
+  .unactivebtn {
+    background-color: #b2dffc;
+  }
+  button {
+    border: none;
+    outline: none;
+  }
+  input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.submit {
+  border: none;
+  outline: none;
+  color: #b2dffc;
+  background-color: transparent;
+  font-weight: 600;
+}
