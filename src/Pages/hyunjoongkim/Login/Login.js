@@ -27,7 +27,9 @@ class LoginKim extends Component {
 
     console.log(this.state.pw);
   };
-
+  handleLogin = (e) => {
+    if (e.key === "Enter") this.goToMain();
+  };
   goToMain = (e) => {
     // const { id, pw } = this.state;
     // console.log("전달 받은 id : ", id);
@@ -59,6 +61,7 @@ class LoginKim extends Component {
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                   onKeyUp={this.checkValid}
                   onChange={this.handleInputValue}
+                  onKeyPress={this.handleLogin}
                 />
                 <input
                   id="loginPassword"
@@ -66,6 +69,7 @@ class LoginKim extends Component {
                   placeholder="비밀번호"
                   onKeyUp={this.checkValid}
                   onChange={this.handlePwdValue}
+                  onKeyPress={this.handleLogin}
                 />
 
                 <button

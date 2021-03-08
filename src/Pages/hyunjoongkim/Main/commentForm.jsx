@@ -5,17 +5,18 @@ class CommentForm extends Component {
   state = {
     text: "",
   };
+  z;
   inputRef = React.createRef();
 
   onSubmit = (e) => {
     e.preventDefault();
     const content = this.inputRef.current.value;
-    //if(!content===""){}
-    content && this.props.onAdd(content); // content가 비어져 있지 않다면 onAdd함수로 작성한 댓글 전달
+    content && this.props.onAdd(content);
+    // content가 비어져 있지 않다면 props로 전달된 onAdd라는 함수에 작성한 댓글 전달
     this.inputRef.current.value = "";
     //   commentInput.focus(); focus는 ref 이용 나중에 구현
   };
-
+  
   handleInput = (e) => {
     const inputText = e.target.value;
     this.setState({ text: inputText });

@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 
 class Comment extends Component {
+  state = {
+    isClicked: false,
+  };
   handleDelete = (comment) => {
     this.props.handleDelete(this.props.propcomment);
     // this.props안에 있는 handleDelete함수 호출 (Main.js)
   };
   handleHeart = (comment) => {
-    //
+    this.state.isClicked
+      ? this.setState({ isClicked: false })
+      : this.setState({ isClicked: true });
   };
 
   render() {
     const { nickName, content } = this.props.propcomment;
     // propcomment안에 있는 데이터 nickName, content 에 할당
 
+    const { isClicked } = this.state;
     return (
       <li className="comment">
         <div className="commentLeft">
@@ -25,7 +31,7 @@ class Comment extends Component {
           </button>
           <button
             type="button"
-            id="heartBtn"
+            id={isClicked ? "ckickHeartBtn" : "heartBtn"}
             value="false"
             onClick={this.handleHeart}
           >

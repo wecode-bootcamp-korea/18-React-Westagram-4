@@ -13,19 +13,24 @@ class MainKim extends Component {
       { id: 3, nickName: "Jinseo", content: "오" },
     ],
   };
-  // 댓글 삭제 or 좋아요
   handleDelete = (comment) => {
     const comments = this.state.comments.filter(
       (item) => item.id !== comment.id
-    ); // 삭제버튼 클릭한 댓글의 id와 같지 않은 id들을 필터링해서
-    this.setState({ comments }); // 새로운 배열을 만듬 (삭제버튼 누른 id값을 가진 댓글만 삭제)
+    );
+    this.setState({ comments });  
   };
+  // 새로운 변수 comments를 만들어서 this.state에 있는 comments를 순환 하면서
+  //  item(댓글)을 전달 받아서 배열에 있는 item의 id가 삭제하고자 하는 함수 인자로 전달 받은
+  // comment의 아이디가 동일하지 않은 댓글들만 필터링해서 베열을 만들자
+  // setState를 이용해서 삭제버튼을 누른 댓글의 id와 다른 값을 가진 댓글들로 업데이트
+  //  (삭제 버튼 누른 댓글을 제외한 댓글들로만 setState된다  )
+
   handleHeart = (comment) => {
     //   // 하트 클릭시 하트 모양 변경
   };
 
-  // 댓글 추가
   handleAdd = (content) => {
+    // content(댓글 내용)을 받아서 새로운 댓글을 state에 추가하는 함수
     const comments = [
       ...this.state.comments,
       { id: Date.now(), nickName: "Hyunjoong", content },
@@ -33,7 +38,9 @@ class MainKim extends Component {
       // 그 댓글의 id가 다른것들을 모아서 다시 배열로 만들려고
     ];
     this.setState({ comments });
-    //this.setState({ comments: comments }); 로 첫번 째 comments는 key로 state값이고 두번 째 comments는 위에 선언한 comments
+    // 원래 작성해야 할 코드는 this.setState({ comments: comments }); 로 첫번 째
+    // comments는 key로 state값이고 두번 째 comments는 위에 선언한 comments로
+    // 현재 state의 comments를 새로 작성한 댓글을 추가해서 새로운 comments로 setState한다.
   };
 
   render() {
