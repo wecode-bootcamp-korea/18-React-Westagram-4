@@ -32,85 +32,85 @@ class MainBae extends React.Component {
       name: "d.mo.b ",
       text: this.state.comment,
     };
+
     this.setState({
       comments: this.state.comments.concat(commentObj),
     });
+
     this.inputRef.current.focus();
     this.inputRef.current.value = "";
   };
-
   inputComment = (e) => {
     this.setState({
       comment: e.target.value,
     });
   };
-
   render() {
+    console.log(this.state);
     return (
       <div className="MainBae">
         <Navbar />
-
         <div className="mainFeeds">
           <div className="feedBox">
             <div className="storys">
               <ul className="storyImg">
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={img} alt="img1" />
+                    <img src={img} alt="dog" />
                     <span>mmum_love</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={img2} alt="img1" />
+                    <img src={img2} alt="benz" />
                     <span>benzsales</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={porsch_img} alt="img1" />
+                    <img src={porsch_img} alt="porsch" />
                     <span>porsch.sscl</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={bmw} alt="img1" />
+                    <img src={bmw} alt="bmw" />
                     <span>bmw_korea</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={insta} alt="img1" />
+                    <img src={insta} alt="instaImg" />
                     <span>jjsa_sss</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={insta2} alt="img1" />
+                    <img src={insta2} alt="instaImg2" />
                     <span>t__bbb</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={insta3} alt="img1" />
+                    <img src={insta3} alt="instaImg3" />
                     <span>d___os</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={mummu} alt="img1" />
+                    <img src={mummu} alt="dog2" />
                     <span>kkkk__11</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={mmmm} alt="img1" />
+                    <img src={mmmm} alt="dog3" />
                     <span>oc___ss</span>
                   </li>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
-                    <img src={img} alt="img1" />
+                    <img src={img} alt="dog" />
                     <span>abKs_ss</span>
                   </li>
                 </div>
@@ -120,12 +120,11 @@ class MainBae extends React.Component {
                 <a className="button-next"></a>
               </div>
             </div>
-
             <div className="feedMain">
               <div className="headerBox">
                 <div className="headerImg">
                   <a href="https://www.instagram.com/wecode_bootcamp/">
-                    <img src={wecode_img} alt="" />
+                    <img src={wecode_img} alt="wecodeImg" />
                   </a>
                   <a
                     href="https://www.instagram.com/wecode_bootcamp/"
@@ -139,7 +138,7 @@ class MainBae extends React.Component {
 
               <div className="feedPhoto">
                 <div className="feedphotoBox">
-                  <img src={img} alt="" />
+                  <img src={img} alt="feedImg" />
                 </div>
               </div>
               <section className="section-footer">
@@ -152,7 +151,6 @@ class MainBae extends React.Component {
                   <i className="far fa-bookmark"></i>
                 </div>
               </section>
-
               <div className="footer-commnet">
                 <div className="like-comment">
                   <a href="https://www.instagram.com/d.mo.b/">d.mo.b</a>
@@ -169,6 +167,7 @@ class MainBae extends React.Component {
                   <br />
                   <div>
                     <a href="">#위코드 #부트캠프 #코딩 #웹개발 #프론트엔드</a>
+                    <br />
                     <br />
                   </div>
                   <div className="firstComment">
@@ -197,8 +196,8 @@ class MainBae extends React.Component {
                     </button>
                   </form>
                 </section>
-                <Aside />
               </div>
+              <Aside />
             </div>
           </div>
         </div>
