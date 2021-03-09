@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "react-uuid";
 import "./Main.scss";
 import img from "../../../images/damhobae/mummu.png";
 import img2 from "../../../images/damhobae/benz.png";
@@ -9,27 +10,45 @@ import insta3 from "../../../images/damhobae/instat3.png";
 import mummu from "../../../images/damhobae/mumm.png";
 import mmmm from "../../../images/damhobae/mmmm.png";
 import wecode_img from "../../../images/damhobae/wecode.png";
-
-import myprofile_img from "../../../images/damhobae/myprofile.png";
 import porsch_img from "../../../images/damhobae/porsche.png";
+import Navbar from "./components/Navbar";
+import Aside from "./components/Aside";
+
 class MainBae extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputRef = React.createRef();
+  }
+
+  state = {
+    comment: "",
+    comments: [],
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const commentObj = {
+      id: uuid(),
+      name: "d.mo.b ",
+      text: this.state.comment,
+    };
+    this.setState({
+      comments: this.state.comments.concat(commentObj),
+    });
+    this.inputRef.current.focus();
+    this.inputRef.current.value = "";
+  };
+
+  inputComment = (e) => {
+    this.setState({
+      comment: e.target.value,
+    });
+  };
+
   render() {
     return (
       <div className="MainBae">
-        <nav className="nav-bar">
-          <div className="navBox">
-            <a>Westagram</a>
-            <div className="searchBox">
-              <input type="texit" placeholder="검색" />
-              <i className="fas fa-search"></i>
-            </div>
-            <div className="nav-icon">
-              <i class="far fa-compass"></i>
-              <i className="far fa-paper-plane"></i>
-              <i class="far fa-heart"></i>
-            </div>
-          </div>
-        </nav>
+        <Navbar />
 
         <div className="mainFeeds">
           <div className="feedBox">
@@ -117,6 +136,7 @@ class MainBae extends React.Component {
                   <i className="fas fa-ellipsis-h"></i>
                 </div>
               </div>
+
               <div className="feedPhoto">
                 <div className="feedphotoBox">
                   <img src={img} alt="" />
@@ -132,6 +152,7 @@ class MainBae extends React.Component {
                   <i className="far fa-bookmark"></i>
                 </div>
               </section>
+
               <div className="footer-commnet">
                 <div className="like-comment">
                   <a href="https://www.instagram.com/d.mo.b/">d.mo.b</a>
@@ -151,92 +172,33 @@ class MainBae extends React.Component {
                     <br />
                   </div>
                   <div className="firstComment">
-                    <div className="newComment">
-                      <a href="https://www.instagram.com/d.mo.b/">d.mo.b</a>
-                      <b>안녕하세요~</b>
-                    </div>
+                    {this.state.comments.map((comment) => (
+                      <div className="newComment">
+                        <b>{comment.name}</b>
+                        <b>{comment.text}</b>
+                      </div>
+                    ))}
                   </div>
                   <div className="timeBox">
                     <p>42분전</p>
                   </div>
                 </div>
                 <section>
-                  <div className="writeBox">
+                  <form className="writeBox" onSubmit={this.onSubmit}>
                     <input
                       type="text"
                       className="write-comment"
                       placeholder="댓글 달기..."
+                      ref={this.inputRef}
+                      onChange={this.inputComment}
                     />
-                    <button className="uploadBtn" type="button">
+                    <button className="uploadBtn" type="submit">
                       <b>게시</b>
                     </button>
-                  </div>
+                  </form>
                 </section>
+                <Aside />
               </div>
-              <section>
-                <div className="mainRight">
-                  <div className="rightStoryBox">
-                    <img
-                      src={myprofile_img}
-                      alt="img1"
-                      className="rightStoryImg"
-                    />
-                    <div className="rightName">
-                      <a href="https://www.instagram.com/d.mo.b/" alt="name">
-                        d.mo.b
-                      </a>
-                    </div>
-                    <span>담호</span>
-                    <button className="rightBtn" type="submit">
-                      전환
-                    </button>
-                  </div>
-                  {/* <div className="suggestBox"> */}
-                  <div className="suggestBox">
-                    <span>회원님을 위한 추천</span>
-                    <a href="" className="allSearch">
-                      모두보기
-                    </a>
-                    <div className="goSuggestBox">
-                      <div className="imgListBox">
-                        <img src={img} className="imgList"></img>
-                      </div>
-                      <a href={img}>mumum_a</a>
-                      <div className="fallowBox">
-                        <a href="" className="fallow">
-                          팔로우
-                        </a>
-                      </div>
-                    </div>
-                    <div className="twoimgLine">
-                      <div className="goSuggestBox">
-                        <div className="imgListBox">
-                          <img src={img} className="imgList"></img>
-                        </div>
-                        <a href={img}>damho_bae</a>
-                        <div className="fallowBox">
-                          <a href="" className="fallow">
-                            팔로우
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="thirdrLine">
-                      <div className="goSuggestBox">
-                        <div className="imgListBox">
-                          <img src={img} className="imgList"></img>
-                        </div>
-                        <a href={img}>love_ez</a>
-                        <div className="fallowBox">
-                          <a href="" className="fallow">
-                            팔로우
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
             </div>
           </div>
         </div>
