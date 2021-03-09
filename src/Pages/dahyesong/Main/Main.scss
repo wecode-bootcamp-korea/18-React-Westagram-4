@@ -1,11 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  list-style: none;
-  text-decoration: none;
-  color: black;
-}
-
 .MainSong {
   /*nav*/
   nav {
@@ -20,6 +12,11 @@
       font-family: "Lobster", cursive;
       font-weight: lighter;
       font-size: 23px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
     }
     .search_bar {
       width: 220px;
@@ -70,6 +67,8 @@
         flex-wrap: wrap;
         margin-right: 10px;
         text-align: center;
+        text-decoration: none;
+        color: black;
         font-size: 12px;
 
         img {
@@ -204,6 +203,10 @@
         .user_id {
           display: inline-block;
           font-weight: bold;
+
+          .view_more {
+            text-decoration: none;
+          }
         }
         .timelog {
           font-size: 10px;

@@ -105,7 +105,6 @@ class MainSong extends Component {
               <h3>회원님을 위한 추천</h3>
               <span>모두 보기</span>
             </div>
-
             <div className="recommend_id">
               <img
                 src="https://new-year.spartacodingclub.kr/images/yearS1.png"
@@ -149,13 +148,11 @@ class MainSong extends Component {
                 />
                 <h3>wecode_bootcamp</h3>
               </div>
-
               <img
                 className="feeds_img"
                 src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/150915321_179560660629368_165943275422580666_n.jpg?tp=1&_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=l46u1xkh-ScAX_ECMNm&oh=7c31830d51b0a8525949bd56ba541d4b&oe=60683C42"
                 alt=""
               />
-
               <div className="reaction">
                 <div className="reaction_icon">
                   <Link to="#">
@@ -184,7 +181,6 @@ class MainSong extends Component {
                     />
                   </Link>
                 </div>
-
                 <h3>좋아요 329개</h3>
                 <p className="user_id">wecode_bootcamp</p>
                 <span className="user_comment">
@@ -201,7 +197,6 @@ class MainSong extends Component {
                 <span className="user_comment">좋아요!!!</span>
                 <p className="timelog">8시간 전</p>
               </div>
-
               <div className="comment">
                 <img
                   src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcWmtmZ%2FbtqZkreo0uE%2FaLiv60CG42ZrP94tU5wji1%2Fimg.png"
