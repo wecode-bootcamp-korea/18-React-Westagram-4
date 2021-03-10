@@ -1,5 +1,7 @@
 import React from "react";
 import uuid from "react-uuid";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import { BsHeart } from "react-icons/bs";
 import "./Main.scss";
 import img from "../../../images/damhobae/mummu.png";
 import img2 from "../../../images/damhobae/benz.png";
@@ -45,8 +47,15 @@ class MainBae extends React.Component {
       comment: e.target.value,
     });
   };
+  handleDelete = (e, id) => {
+    this.setState({
+      comments: this.state.comments.filter((comment) => comment.id !== id),
+    });
+  };
+  handleColor = () => {
+    this.setState({});
+  };
   render() {
-    console.log(this.state);
     return (
       <div className="MainBae">
         <Navbar />
@@ -57,62 +66,62 @@ class MainBae extends React.Component {
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={img} alt="dog" />
-                    <span>mmum_love</span>
                   </li>
+                  <span>mmum</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={img2} alt="benz" />
-                    <span>benzsales</span>
                   </li>
+                  <span>benz</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={porsch_img} alt="porsch" />
-                    <span>porsch.sscl</span>
                   </li>
+                  <span>porsch</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={bmw} alt="bmw" />
-                    <span>bmw_korea</span>
                   </li>
+                  <span>bmw_korea</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={insta} alt="instaImg" />
-                    <span>jjsa_sss</span>
                   </li>
+                  <span>jjsa_sss</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={insta2} alt="instaImg2" />
-                    <span>t__bbb</span>
                   </li>
+                  <span>t__bbb</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={insta3} alt="instaImg3" />
-                    <span>d___os</span>
                   </li>
+                  <span>d___os</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={mummu} alt="dog2" />
-                    <span>kkkk__11</span>
                   </li>
+                  <span>kkkk__11</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={mmmm} alt="dog3" />
-                    <span>oc___ss</span>
                   </li>
+                  <span>oc___ss</span>
                 </div>
                 <div className="storyborder">
                   <li className="storyList">
                     <img src={img} alt="dog" />
-                    <span>abKs_ss</span>
                   </li>
+                  <span>abKs_ss</span>
                 </div>
               </ul>
               <div className="button-box">
@@ -159,22 +168,44 @@ class MainBae extends React.Component {
                   <b>이 좋아합니다</b>
                 </div>
                 <div className="commentBox">
-                  <a href="https://www.instagram.com/wecode_bootcamp/">
+                  <a
+                    className="user_id"
+                    href="https://www.instagram.com/wecode_bootcamp/"
+                  >
                     wecode_bootcamp
                   </a>
                   <b>👋Hello World😁</b>
                   <br />
                   <br />
-                  <div>
-                    <a href="">#위코드 #부트캠프 #코딩 #웹개발 #프론트엔드</a>
+                  <div classNam="tagBox">
+                    <a href="#">#위코드 #부트캠프 #코딩 #웹개발 #프론트엔드</a>
                     <br />
                     <br />
                   </div>
                   <div className="firstComment">
                     {this.state.comments.map((comment) => (
                       <div className="newComment">
-                        <b>{comment.name}</b>
-                        <b>{comment.text}</b>
+                        <div>
+                          <b>{comment.name}</b>
+                          <b>{comment.text}</b>
+                        </div>
+                        <div>
+                          <button className="hartBtn">
+                            onClick=
+                            {(e) => {
+                              this.handleColor();
+                            }}
+                            <BsHeart />
+                          </button>
+                          <button
+                            className="deletBtn"
+                            onClick={(e) => {
+                              this.handleDelete(e, comment.id); //이벤트값, 고유한 아이디값
+                            }}
+                          >
+                            <RiDeleteBin2Line className="icon-ri" />
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>

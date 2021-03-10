@@ -15,26 +15,39 @@ class LoginBae extends React.Component {
     this.setState({ [name]: value });
   };
 
-  Validation = () => {
+  Validation = (e) => {
+    if (e.charCode === 13) {
+      this.MainVailid();
+    }
+
     this.state.loginId.includes("@") && this.state.loginPw.length >= 5
       ? this.setState({ activateBtn: true })
       : this.setState({ activateBtn: false });
   };
 
-  MainVailid = () => {
-    const { loginId, loginPw } = this.state;
-    if (loginId.includes("@") && loginPw.length >= 5) {
-      alert("로그인 성공 하셨습니다.");
+  MainVailid = async () => {
+    const loginCheck = await fetch("http://10.58.6.0:0000/user/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.loginId,
+        password: this.state.loginPw,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("여기가 1");
+        return response;
+      });
+    if (loginCheck.SUCCESS === "signup") {
       this.props.history.push("/main-bae");
+      alert("로그인 성공");
     } else {
-      alert("다시 입력해주세요");
+      alert("로그인 실패");
     }
   };
 
   render() {
-    const activateBtn =
-      (this.state.loginId.includes("@") && this.state.loginPw.length) >= 5;
-
+    const { loginId, loginPw, activateBtn } = this.state;
     return (
       <div className="LoginBae">
         <div className="inner">
@@ -44,21 +57,21 @@ class LoginBae extends React.Component {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               name="loginId"
-              value={this.state.loginId}
-              onKeyUp={this.Validation}
+              value={loginId}
+              onKeyPress={this.Validation}
               onChange={this.handleLoginInfo}
             />
             <input
               type="password"
               placeholder="비밀번호"
               name="loginPw"
-              value={this.state.loginPw}
-              onKeyUp={this.Validation}
+              value={loginPw}
+              onKeyPress={this.Validation}
               onChange={this.handleLoginInfo}
             />
             <button
               className="loginBtn"
-              onKeyUp={this.MainVailid}
+              // onKeyUp={this.MainVailid}
               onClick={this.MainVailid}
               className={activateBtn ? "loginBtn active" : "loginBtn"}
               type="submit"
