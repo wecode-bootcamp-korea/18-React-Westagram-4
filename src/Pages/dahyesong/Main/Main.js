@@ -6,8 +6,32 @@ import "./Main.scss";
 class MainSong extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      comment: "",
+      comment_arr: [{ str: "" }],
+    };
   }
+
+  handleComment = (e) => {
+    this.setState({
+      comment: e.target.value,
+    });
+  };
+
+  btnClick = (e) => {
+    if (e.key === "Enter") {
+      this.commentList();
+    }
+  };
+
+  commentList = () => {
+    const comment = { str: this.state.comment };
+
+    this.setState({
+      comment_arr: this.state.comment_arr.concat(comment),
+    });
+  };
+
   render() {
     return (
       <div className="MainSong">
@@ -175,7 +199,6 @@ class MainSong extends Component {
                   </Link>
                   <Link to="#">
                     <img
-                      className="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fu4hPg%2FbtqZqqd3Xs5%2FUmTfhjksRwCEFF854dlVK1%2Fimg.png"
                       src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fu4hPg%2FbtqZqqd3Xs5%2FUmTfhjksRwCEFF854dlVK1%2Fimg.png"
                       alt="저장"
                     />
@@ -185,9 +208,7 @@ class MainSong extends Component {
                 <p className="user_id">wecode_bootcamp</p>
                 <span className="user_comment">
                   🙆🏻‍♀️함께해서 위코드다🙆🏻‍♂
-                  <Link class="view_more" to="#">
-                    ... 더 보기
-                  </Link>
+                  <span class="view_more">... 더 보기</span>
                 </span>
                 <br />
                 <p className="user_id">weco1</p>
@@ -195,14 +216,31 @@ class MainSong extends Component {
                 <br />
                 <p className="user_id">wecodooo_</p>
                 <span className="user_comment">좋아요!!!</span>
+
+                <div>
+                  <ul className="comment_up">
+                    {this.state.comment_arr.map((x) => (
+                      <li>users:{x.str}</li>
+                    ))}
+                  </ul>
+                </div>
+
                 <p className="timelog">8시간 전</p>
               </div>
-              <div className="comment">
+              <div className="comment_box">
                 <img
                   src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcWmtmZ%2FbtqZkreo0uE%2FaLiv60CG42ZrP94tU5wji1%2Fimg.png"
                   alt="스마일 그림"
                 />
-                <span>댓글 달기...</span>
+                <input
+                  type="text"
+                  placeholder="댓글 달기"
+                  onChange={this.handleComment}
+                  onKeyUp={this.btnClick}
+                ></input>
+                <button className="comment_btn" onClick={this.commentList}>
+                  게시
+                </button>
               </div>
             </article>
           </div>
