@@ -1,17 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Login.scss";
-import "../Styles/reset.scss";
-import "../Styles/common.scss";
 
 class LoginHong extends Component {
   constructor() {
     super();
     this.state = {
-      Id: "",
-      Password: "",
+      id: "",
+      password: "",
+      btnState: "disabled",
     };
   }
+
+  // signup = () => {
+  //   fetch("http://localhost:3002/", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       password: this.state.password,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => console.log("결과: ", result));
+  // };
 
   handleLoginInput = (e) => {
     const { name, value } = e.target;
@@ -21,10 +32,22 @@ class LoginHong extends Component {
   };
 
   loginValidation = () => {
-    return this.state.Id.includes("@") && this.state.Password.length >= 5;
+    const { id, password } = this.state;
+    id.includes("@") && password.length >= 5
+      ? this.setState({
+          btnState: "active",
+        })
+      : this.setState({ btnState: "disabled" });
+  };
+
+  goToMain = () => {
+    this.state.btnState === "active" && this.props.history.push("/main-hong");
   };
 
   render() {
+    const { handleLoginInput, loginValidation, goToMain } = this;
+    const { btnState } = this.state;
+    console.log(this.state);
     return (
       <div className="LoginHong">
         <section className="wrapper">
@@ -32,29 +55,25 @@ class LoginHong extends Component {
           <form className="loginBox">
             <div className="textBox">
               <input
-                name="Id"
+                name="id"
                 type="text"
-                onChange={this.handleLoginInput}
+                onChange={handleLoginInput}
+                onKeyUp={loginValidation}
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
             </div>
             <div className="textBox">
               <input
-                name="Password"
+                name="password"
                 type="password"
-                onChange={this.handleLoginInput}
+                onChange={handleLoginInput}
+                onKeyUp={loginValidation}
                 placeholder="비밀번호"
               />
             </div>
-            <Link to={this.loginValidation() ? "/main-hong" : "/login-hong"}>
-              <button
-                className={
-                  this.loginValidation() ? "loginBtn" : "loginBtn disabled"
-                }
-              >
-                로그인
-              </button>
-            </Link>
+            <button onClick={goToMain} className={btnState}>
+              로그인
+            </button>
           </form>
           <span>
             <a href="https://www.google.co.kr">비밀번호를 잊으셨나요?</a>
@@ -65,4 +84,4 @@ class LoginHong extends Component {
   }
 }
 
-export default LoginHong;
+export default withRouter(LoginHong);

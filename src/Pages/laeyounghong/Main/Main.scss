@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 935px;
+    max-width: 975px;
     height: 54px;
     margin: auto;
     padding: 0 20px;
@@ -78,8 +78,8 @@
   }
 
   .topFeedBox {
-    width: 614px;
-    height: 84px;
+    width: 616px;
+    height: 118px;
     margin-bottom: 24px;
     margin-top: 0;
     padding: 16px 0;
@@ -90,7 +90,7 @@
     font-size: 12px;
 
     img {
-      height: 56px;
+      height: 60px;
       padding: 2px;
       border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
       border-radius: 50%;
@@ -100,7 +100,7 @@
   article {
     display: flex;
     flex-direction: column;
-    width: 614px;
+    width: 616px;
     margin-bottom: 60px;
     border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
     border-radius: 3px;
@@ -116,7 +116,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 28px;
+    height: 60px;
     padding: 16px;
   }
 
@@ -154,7 +154,7 @@
     }
 
     svg {
-      padding: 8px 0;
+      margin: 8px 0;
     }
   }
 
@@ -213,7 +213,7 @@
   .commentsInput {
     width: 514px;
     height: 18px;
-    padding: 0;
+    padding: 0 10px 0 0;
     outline: none;
     border: 0;
     background-color: white;
@@ -232,7 +232,7 @@
     cursor: pointer;
   }
 
-  .postingBtn[disabled] {
+  .disabled {
     opacity: 0.3;
     pointer-events: none;
   }
@@ -241,7 +241,7 @@
   .mainRightSide {
     position: fixed;
     width: 100%;
-    max-width: 293px;
+    max-width: 295px;
     height: 500px;
     margin-left: 644px;
   }
@@ -257,8 +257,8 @@
   }
 
   .asideProfile img {
-    width: 56px;
-    height: 56px;
+    width: 57px;
+    height: 57px;
   }
 
   .asideNickname {
@@ -292,8 +292,8 @@
   }
 
   .recommend {
-    width: 32px;
-    height: 32px;
+    width: 33px;
+    height: 33px;
   }
 
   .recommendContainer {

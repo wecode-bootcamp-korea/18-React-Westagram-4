@@ -1,10 +1,64 @@
 import React, { Component } from "react";
 import "./Main.scss";
-import "../Styles/reset.scss";
-import "../Styles/common.scss";
+import Comments from "./Comments";
 
 class MainHong extends Component {
+  constructor() {
+    super();
+    this.state = {
+      CommentsInputValue: "",
+      CommentsList: [{}],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3002/data/commentDataHong.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          CommentsList: data,
+        });
+      });
+  }
+
+  handleCommentsInput = (e) => {
+    this.setState({
+      CommentsInputValue: e.target.value,
+    });
+  };
+
+  addCommentsByClick = () => {
+    if (this.state.CommentsInputValue) {
+      this.setState({
+        CommentsList: [
+          ...this.state.CommentsList,
+          {
+            id: this.state.CommentsList.length,
+            url: "https://www.instagram.com/honglaeyoung/",
+            name: "honglaeyoung",
+            comment: this.state.CommentsInputValue,
+          },
+        ],
+        CommentsInputValue: "",
+      });
+    }
+  };
+
+  addCommentsByEnter = (e) => {
+    if (e.key === "Enter") {
+      this.addCommentsByClick();
+    }
+  };
+
   render() {
+    const {
+      handleCommentsInput,
+      addCommentsByClick,
+      addCommentsByEnter,
+    } = this;
+    const { CommentsInputValue, CommentsList } = this.state;
     return (
       <div className="MainHong">
         <nav>
@@ -22,15 +76,17 @@ class MainHong extends Component {
             <ul>
               <li>
                 <a>
-                  <svg
-                    aria-label="홈"
-                    fill="#262626"
-                    height="22"
-                    viewBox="0 0 48 48"
-                    width="22"
-                  >
-                    <path d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"></path>
-                  </svg>
+                  {
+                    <svg
+                      aria-label="홈"
+                      fill="#262626"
+                      height="22"
+                      viewBox="0 0 48 48"
+                      width="22"
+                    >
+                      <path d="M45.5 48H30.1c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2.1-4.6-4.6-4.6s-4.6 2.1-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.6-.6 2.1 0l21.5 21.5c.3.3.4.7.4 1.1v23.5c.1.8-.6 1.5-1.4 1.5z"></path>
+                    </svg>
+                  }
                 </a>
               </li>
               <li>
@@ -242,18 +298,16 @@ class MainHong extends Component {
                   <div className="articleLikes">좋아요 180개</div>
                   <div className="articleComments">
                     <ul>
-                      <li>
-                        <a href="https://www.instagram.com/mido__sol/">
-                          mido__sol
-                        </a>
-                        &nbsp;<span>미도 막대사탕 요긴네</span>
-                      </li>
-                      <li>
-                        <a href="https://www.instagram.com/honglaeyoung/">
-                          honglaeyoung
-                        </a>
-                        &nbsp;<span>야옹야옹</span>
-                      </li>
+                      {CommentsList.map((comment) => {
+                        return (
+                          <Comments
+                            key={comment.id}
+                            url={comment.url}
+                            name={comment.name}
+                            comment={comment.comment}
+                          />
+                        );
+                      })}
                     </ul>
                   </div>
                   <div className="articleTime">n일 전</div>
@@ -275,8 +329,17 @@ class MainHong extends Component {
                     className="commentsInput"
                     type="text"
                     placeholder="댓글 달기..."
+                    onChange={handleCommentsInput}
+                    onKeyPress={addCommentsByEnter}
+                    value={CommentsInputValue}
                   />
-                  <button className="postingBtn" type="submit" disabled="">
+                  <button
+                    className={
+                      CommentsInputValue ? "postingBtn" : "postingBtn disabled"
+                    }
+                    type="submit"
+                    onClick={addCommentsByClick}
+                  >
                     게시
                   </button>
                 </footer>
