@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import Comment from "./Comment";
 import "./Main.scss";
 
 class MainSong extends Component {
@@ -219,11 +220,7 @@ class MainSong extends Component {
                 <span className="user_comment">좋아요!!!</span>
 
                 <div>
-                  <ul className="comment_up">
-                    {this.state.comment_arr.map((x) => (
-                      <li>users:{x.str}</li>
-                    ))}
-                  </ul>
+                  <Comment inputComment={this.state.comment_arr} />
                 </div>
 
                 <p className="timelog">8시간 전</p>
