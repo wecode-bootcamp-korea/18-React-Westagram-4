@@ -29,6 +29,7 @@ class MainSong extends Component {
 
     this.setState({
       comment_arr: this.state.comment_arr.concat(comment),
+      comment: "",
     });
   };
 
@@ -237,6 +238,7 @@ class MainSong extends Component {
                   placeholder="댓글 달기"
                   onChange={this.handleComment}
                   onKeyUp={this.btnClick}
+                  value={this.state.comment}
                 ></input>
                 <button className="comment_btn" onClick={this.commentList}>
                   게시
