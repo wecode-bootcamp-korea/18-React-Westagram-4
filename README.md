@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# westagram
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-----------
 
-## Available Scripts
+**React로 구현한 인스타그램 클론 코딩 프로젝트**
 
-In the project directory, you can run:
+> ## 🖥  프로젝트
 
-### `yarn start`
+![로그인이미지](https://images.velog.io/images/lang/post/09f864bb-8935-4ab9-8e8d-cf5e02300981/westagram_loginPage.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![메인페이지](https://images.velog.io/images/lang/post/c8933737-af80-42ea-892b-9eb240f5cdbe/westagram_mainPage.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **주제**: React를 사용한 Instagram clone
 
-### `yarn test`
+  - CRA를 사용한 초기 세팅
+  - 4명의 팀원들이 공동 component, scss 사용 및 관리
+  - git을 사용한 첫 번째 협업
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 📅 **프로젝트 기간** 
 
-### `yarn build`
+  ​	2021.03.02 - 2021.03.11 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> ## 👨‍💻 팀원 별 작업 현황
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **공통**
+  - 로그인 페이지 레이아웃
+  - id, pw 입력 시 로그인 버튼 활성화 기능
+  - 메인 페이지 레이아웃
+  - 댓글 내용 입력 후 Enter press, 혹은 게시 버튼 클릭 시 댓글 추가 기능
+  - 문자 입력 시 게시 버튼 활성화 기능
 
-### `yarn eject`
+- **김현중** 
+  - 메인 페이지 댓글 좋아요 및 삭제 기능
+- **배담호**
+  - 메인 페이지 댓글 삭제 기능
+- **송다혜**
+  - 메인 페이지 피드 좋아요 기능
+- **홍래영**
+  - 메인 페이지 피드, aside 컴포넌트화
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> ## 🔧  기술 스택
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- HTML,CSS
+- JavaScript(ES6+)
+- React
+- SCSS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> ## ✏️ 작업 순서 (git) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. 초기 세팅된 git repository clone하기
 
-## Learn More
+`git clone https://github.com/wecode-bootcamp-korea/18-React-Westagram-4.git`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. master branch에서 자신만의 브랜치 만들고 checkout하기
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`git branch feature/성명`
 
-### Code Splitting
+`git checkout feature/성명`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. 작업 완료 후에 바로 add commit push를 하는 게 아니라 github을 확인한 후 master 브랜치가 update되었는지 확인하기
 
-### Analyzing the Bundle Size
+4. 만약 master 브랜치가 update되었다면 master 브랜치로 checkout하기
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`git checkout master`
 
-### Making a Progressive Web App
+5. update된 코드 pull 받기
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+`git pull origin master`
 
-### Advanced Configuration
+6. feature/자기이름 브랜치로 다시 이동해서 master branch merge하기
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+`git checkout feature/성명`
 
-### Deployment
+`git merge master`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+7. 자기 코드에 이상이 없는지 확인 후에 add, commit, push 하기
 
-### `yarn build` fails to minify
+`git add .`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`git commit -m "Add : 수정 내용"`
+
+`git push origin feature/성명`
+
+8. github에서 PR(Pull Request) 보내기
+
+9. 다시 3번부터 반복
+
+> ## 📕 팀원별 GitHub 주소
+
+- 김현중 : [현중님 GitHub](https://github.com/hyjoong)
+- 배담호 : [담호님 GitHub](https://github.com/damho0514)
+- 송다혜 : [다혜님 GitHub](https://github.com/SongDye1)
+- 홍래영 : [래영님 GitHub](https://github.com/lang92)
