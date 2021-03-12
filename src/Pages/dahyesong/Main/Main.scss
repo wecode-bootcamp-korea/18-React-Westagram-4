@@ -1,1 +1,231 @@
-// zx
+.MainSong {
+  /*nav*/
+  nav {
+    display: flex;
+    height: 50px;
+    padding: 10px 0;
+    background-color: white;
+    border-bottom: 1px solid #dbdbdb;
+
+    #logo {
+      margin-left: 170px;
+      font-family: "Lobster", cursive;
+      font-weight: lighter;
+      font-size: 23px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .search_bar {
+      width: 220px;
+      height: 27px;
+      margin: 0 auto;
+
+      border: solid 1px #dbdbdb;
+      border-radius: 2px;
+      background-color: #fafafa;
+      text-align: center;
+    }
+    .icon_btn {
+      margin-right: 150px;
+      a {
+        float: left;
+        margin-right: 30px;
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+
+  /*main*/
+  main {
+    width: 1200px;
+    margin: auto;
+    margin-top: 30px;
+
+    .westa_story {
+      float: left; /*main-right를 westa_story 오른쪽에 두기 위함*/
+      display: flex; /*story > a들을 정렬하기 위함*/
+      flex-direction: row;
+      justify-content: center;
+
+      height: 110px;
+      width: 620px;
+      padding: 15px;
+      margin-left: 130px;
+
+      background-color: white;
+      border: solid 1px #dbdbdb;
+      border-radius: 3px;
+
+      a {
+        display: block;
+        flex-wrap: wrap;
+        margin-right: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-size: 12px;
+
+        img {
+          width: 65px;
+          border-radius: 65px;
+          border: solid 2px #c42d91;
+        }
+      }
+    }
+    /*main-right*/
+    .main-right {
+      float: right;
+      width: 300px;
+      height: 400px;
+      padding: 20px 10px;
+      margin-right: 130px;
+
+      .my_profile {
+        height: 60px;
+
+        img {
+          vertical-align: middle;
+          width: 60px;
+          margin-right: 10px;
+          border-radius: 65px;
+          border: solid 1px #dbdbdb;
+        }
+        h3 {
+          display: inline-block;
+          font-size: 14px;
+        }
+        span {
+          margin-left: 95px;
+          color: #0095f6;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+      /*회원님을 위한 추천*/
+      .recommend {
+        margin-top: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+
+        h3 {
+          display: inline-block;
+          color: #8e8e8e;
+        }
+        span {
+          margin-left: 97px;
+          font-size: 12px;
+        }
+      }
+      /*추천 아이디*/
+      .recommend_id {
+        img {
+          flex-wrap: wrap;
+          width: 40px;
+          border-radius: 40px;
+          border: solid 1px #dbdbdb;
+          vertical-align: middle;
+          margin: 5px 0;
+        }
+        h3 {
+          display: inline-block;
+          margin-left: 10px;
+        }
+        span {
+          margin-left: 130px;
+          color: #0095f6;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+    }
+    /*feeds*/
+    .feeds {
+      float: left;
+      height: 880px;
+      width: 620px;
+      margin-left: 130px;
+      margin-top: 25px;
+      margin-bottom: 50px;
+
+      background-color: white;
+      border: solid 1px #dbdbdb;
+      border-radius: 3px;
+
+      .profile_info {
+        height: 60px;
+        padding: 15px;
+        border-bottom: 1px solid #efefef;
+
+        img {
+          width: 30px;
+          border-radius: 30px;
+          border: solid 1px #dbdbdb;
+          vertical-align: middle;
+        }
+        h3 {
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
+      .feeds_img {
+        width: 618px;
+        height: 578px;
+        border-bottom: 1px solid #efefef;
+      }
+
+      .reaction {
+        .view_more {
+          color: #989898;
+        }
+        .reaction_icon {
+          a {
+            margin-right: 13px;
+
+            img {
+              width: 25px;
+              height: 25px;
+            }
+            .icon_bookmark {
+              float: right;
+            }
+          }
+        }
+        h3 {
+          padding-top: 5px;
+          padding-bottom: 10px;
+        }
+        .user_id {
+          display: inline-block;
+          font-weight: bold;
+        }
+        .timelog {
+          font-size: 10px;
+          color: #adadad;
+          padding: 10px 0;
+        }
+      }
+
+      /*댓글 달기*/
+      .comment_box {
+        border-top: 1px solid #efefef;
+        padding: 15px;
+
+        img {
+          width: 23px;
+          vertical-align: middle;
+        }
+        span {
+          display: inline-block;
+          color: #939393;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
