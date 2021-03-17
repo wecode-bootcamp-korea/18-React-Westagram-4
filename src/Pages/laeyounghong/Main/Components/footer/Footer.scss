@@ -1,0 +1,43 @@
+.commentsInputContainer {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  border-top: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+
+  .emoticons {
+    margin: 0;
+    padding: 8px 16px 8px 0px;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .commentsInput {
+    width: 514px;
+    height: 18px;
+    padding: 0 10px 0 0;
+    outline: none;
+    border: 0;
+    background-color: white;
+
+    svg {
+      padding: 8px 0;
+    }
+  }
+
+  .postingBtn {
+    padding: 0;
+    color: rgba(var(--d69, 0, 149, 246), 1);
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}

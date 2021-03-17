@@ -1,59 +1,4 @@
-.MainHong {
-  /* nav */
-  nav {
-    position: fixed;
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-    background: rgba(var(--d87, 255, 255, 255), 1);
-    z-index: 999;
-  }
-
-  .topMenu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 975px;
-    height: 54px;
-    margin: auto;
-    padding: 0 20px;
-  }
-
-  .logo {
-    display: flex;
-    min-width: 40px;
-    line-height: 29px;
-    font-size: 21px;
-    font-weight: lighter;
-    font-family: "Lobster", cursive;
-  }
-
-  .inputBox {
-    position: relative;
-    display: flex;
-    width: 215px;
-    min-width: 125px;
-    height: 28px;
-    left: 60px;
-
-    input {
-      width: 215px;
-      padding: 3px 10px 3px 26px;
-      border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-      border-radius: 3px;
-      color: rgba(var(--i1d, 38, 38, 38), 1);
-      outline: 0;
-    }
-  }
-
-  .searchIcon {
-    position: absolute;
-    top: 9px;
-    left: 13px;
-    opacity: 30%;
-  }
-
+.mainHong {
   ul {
     display: flex;
     margin: 0;
@@ -68,6 +13,7 @@
   /* main */
   .mainWrapper {
     display: flex;
+    flex-direction: column;
     max-width: 935px;
     margin: 0 auto;
     padding-top: 85px;
@@ -97,27 +43,18 @@
     }
   }
 
-  article {
-    display: flex;
-    flex-direction: column;
-    width: 616px;
-    margin-bottom: 60px;
-    border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-    border-radius: 3px;
-    background: rgba(var(--d87, 255, 255, 255), 1);
-  }
-
   .profileImage {
     border: 0.5px solid rgba(var(--b6a, 219, 219, 219), 1);
     border-radius: 50%;
   }
 
-  .articleHeader {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60px;
-    padding: 16px;
+  /* aside */
+  .mainRightSide {
+    position: fixed;
+    width: 100%;
+    max-width: 295px;
+    height: 500px;
+    margin-left: 644px;
   }
 
   .Username {
@@ -130,120 +67,6 @@
     &:hover {
       text-decoration-line: underline;
     }
-  }
-
-  .articleOptionBtn {
-    position: absolute;
-    right: 12px;
-    background: none;
-    cursor: pointer;
-  }
-
-  .articleIcons {
-    align-content: center;
-    margin-top: 4px;
-    padding: 0 16px;
-
-    ul {
-      padding: 0;
-    }
-
-    li:last-child {
-      margin-left: auto;
-      margin-right: 0px;
-    }
-
-    svg {
-      margin: 8px 0;
-    }
-  }
-
-  .articleLikes {
-    margin-bottom: 8px;
-    padding: 0 16px;
-    font-weight: 600;
-  }
-
-  .articleComments {
-    padding: 0 16px;
-
-    ul {
-      flex-direction: column;
-      padding: 0;
-    }
-
-    li {
-      margin: 0 0 4px;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: 600;
-      &:hover {
-        text-decoration-line: underline;
-      }
-    }
-  }
-
-  .commentsInputContainer {
-    display: flex;
-    align-items: center;
-    height: 56px;
-    padding: 0 16px;
-    border-top: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
-  }
-
-  .emoticons {
-    margin: 0;
-    padding: 8px 16px 8px 0px;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .articleTime {
-    margin-bottom: 8px;
-    padding-left: 16px;
-    font-size: 10px;
-    color: rgba(var(--f52, 142, 142, 142), 1);
-  }
-
-  .commentsInput {
-    width: 514px;
-    height: 18px;
-    padding: 0 10px 0 0;
-    outline: none;
-    border: 0;
-    background-color: white;
-
-    svg {
-      padding: 8px 0;
-    }
-  }
-
-  .postingBtn {
-    padding: 0;
-    color: rgba(var(--d69, 0, 149, 246), 1);
-    background: none;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .disabled {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-
-  /* aside */
-  .mainRightSide {
-    position: fixed;
-    width: 100%;
-    max-width: 295px;
-    height: 500px;
-    margin-left: 644px;
   }
 
   .asideAccount {

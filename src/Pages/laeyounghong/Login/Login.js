@@ -49,7 +49,7 @@ class LoginHong extends Component {
     const { btnState } = this.state;
     console.log(this.state);
     return (
-      <div className="LoginHong">
+      <div className="loginHong">
         <section className="wrapper">
           <h1 className="logo">Westagram</h1>
           <form className="loginBox">
