@@ -1,1 +1,169 @@
-// zx
+.mainHong {
+  ul {
+    display: flex;
+    margin: 0;
+    padding-left: 20px;
+    list-style: none;
+  }
+
+  li:not(:first-child) {
+    margin-left: 22px;
+  }
+
+  /* main */
+  .mainWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 935px;
+    margin: 0 auto;
+    padding-top: 85px;
+  }
+
+  .mainFeeds {
+    margin-right: 28px;
+  }
+
+  .topFeedBox {
+    width: 616px;
+    height: 118px;
+    margin-bottom: 24px;
+    margin-top: 0;
+    padding: 16px 0;
+    border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+    border-radius: 3px;
+    background: rgba(var(--d87, 255, 255, 255), 1);
+    color: rgba(var(--f52, 142, 142, 142), 1);
+    font-size: 12px;
+
+    img {
+      height: 60px;
+      padding: 2px;
+      border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+      border-radius: 50%;
+    }
+  }
+
+  .profileImage {
+    border: 0.5px solid rgba(var(--b6a, 219, 219, 219), 1);
+    border-radius: 50%;
+  }
+
+  /* aside */
+  .mainRightSide {
+    position: fixed;
+    width: 100%;
+    max-width: 295px;
+    height: 500px;
+    margin-left: 644px;
+  }
+
+  .Username {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 14px;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
+
+  .asideAccount {
+    display: flex;
+    align-items: center;
+    margin: 18px 0 10px;
+
+    .Username:hover {
+      text-decoration-line: none;
+    }
+  }
+
+  .asideProfile img {
+    width: 57px;
+    height: 57px;
+  }
+
+  .asideNickname {
+    margin-left: 14px;
+    color: rgba(var(--f52, 142, 142, 142), 1);
+  }
+
+  .asideBtnBox {
+    position: absolute;
+    right: 0;
+  }
+
+  .asideBtn {
+    padding: 0;
+    background: none;
+    color: rgba(var(--d69, 0, 149, 246), 1);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .recommendComments {
+    display: flex;
+    margin-top: 20px;
+    font-weight: 600;
+    color: rgba(var(--f52, 142, 142, 142), 1);
+
+    .asideBtn {
+      color: black;
+    }
+  }
+
+  .recommend {
+    width: 33px;
+    height: 33px;
+  }
+
+  .recommendContainer {
+    margin-bottom: 20px;
+    padding: 8px 0;
+  }
+
+  .recommendInfo {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+
+    .asideNickname {
+      font-size: 12px;
+    }
+  }
+
+  .asidePolicies {
+    color: rgba(var(--edc, 199, 199, 199), 1);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 3px 0;
+      line-height: 18px;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    p {
+      margin-top: 16px;
+    }
+  }
+
+  .moreInfo a,
+  .moreInfo span {
+    color: rgba(var(--edc, 199, 199, 199), 1);
+    text-decoration: none;
+  }
+
+  .moreInfo:not(:last-of-type)::after {
+    content: "\00B7";
+    margin: 0 2.75px;
+  }
+}
